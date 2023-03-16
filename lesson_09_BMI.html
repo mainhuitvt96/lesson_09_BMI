@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính chỉ số BMI</title>
+</head>
+<body>
+    <form>
+        <fieldset style="width: 500px;">
+            <legend style="font-weight: bold;">Tính chỉ số cân nặng</legend>
+            <label>Nhập cân nặng: (kg)</label>
+            <input type="text" id="weight"><br><br>
+            <label>Nhập chiều cao: (m)</label>
+            <input type="text" id="height"><br><br>
+            <input type="button" value="Kiểm Tra" onclick="check_BMI()"><br>
+            <p id="result"> </p>
+        </fieldset>
+        
+    </form>
+
+    <script>
+        function check_BMI(){
+        var In_weight = document.getElementById('weight').value;
+        var In_height = document.getElementById('height').value;
+
+        var BMI = +(In_weight)/(+(In_height*In_height));
+        console.log(BMI);
+        var result;
+
+        if (BMI < 18.5){
+            result = "Underweight";
+        } else if (BMI < 25.0 && BMI >= 18.5) {
+            result = "Normal";
+        } else if (BMI < 30 && BMI >= 25){
+            result = "Overweight";
+        } else {
+            result = "Obese";
+        }
+        document.getElementById("result").innerHTML = "Đây là kết quả: " + result;
+        }
+        
+    </script>
+</body>
+</html>
